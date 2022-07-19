@@ -14,10 +14,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentpage = 0;
 
-  List<Widget> _screens = [
-    HomeSelected(),
-    SearchScreen(),
-    Library(),
+  ///
+  final List<Widget> _screens = [
+    const HomeSelected(),
+    const SearchScreen(),
+    const Library(),
   ];
 
   void _onTapIndex(int val) {
@@ -31,20 +32,34 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _screens.elementAt(_currentpage),
       bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 9,
+        unselectedFontSize: 9,
         backgroundColor: Colors.black,
         currentIndex: _currentpage,
         onTap: _onTapIndex,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: ImageIcon(
+              _currentpage == 0
+                  ? const AssetImage('assets/home_on.png')
+                  : const AssetImage('assets/home_off.png'),
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: ImageIcon(
+              _currentpage == 1
+                  ? const AssetImage('assets/search_on.png')
+                  : const AssetImage('assets/search_off.png'),
+            ),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_music),
+            icon: ImageIcon(
+              _currentpage == 2
+                  ? const AssetImage('assets/library_on.png')
+                  : const AssetImage('assets/library_off.png'),
+            ),
             label: 'Library',
           )
         ],

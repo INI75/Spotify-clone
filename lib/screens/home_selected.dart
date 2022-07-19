@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spotify/widgets/app_bar_icons.dart';
 import 'package:spotify/widgets/home_ablum_gridview.dart';
+import 'package:spotify/widgets/home_discover_something-new.dart';
 import 'package:spotify/widgets/home_new_relase.dart';
 
 class HomeSelected extends StatelessWidget {
@@ -62,9 +63,12 @@ class HomeSelected extends StatelessWidget {
               ),
 
               Container(
-                color: Colors.blue,
-                height: 250,
-              //  child: ListView.builder(itemBuilder: (context, (context, index) => )),
+                // color: Colors.blue,
+                height: 130, margin: const EdgeInsets.only(top: 17, left: 20),
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: ((context, index) => HomeDiscoverItem())),
               )
             ]),
           ),
