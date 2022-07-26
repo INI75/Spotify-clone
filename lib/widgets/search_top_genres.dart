@@ -14,7 +14,7 @@ class SearchTopGenres extends StatelessWidget {
         height: 40,
         width: 50,
         padding: const EdgeInsets.only(top: 8, left: 10),
-        child: Text(
+        child: const Text(
           'Genres',
           style: TextStyle(
             fontSize: 10,

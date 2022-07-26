@@ -16,10 +16,7 @@ class Library extends StatelessWidget {
           floating: false,
           expandedHeight: 120,
           flexibleSpace: FlexibleSpaceBar(
-            // stretchModes: [
-            //   StretchMode.zoomBackground,
-            //   StretchMode.blurBackground
-            // ],
+          
             background: Container(
                 height: 150,
                 padding: const EdgeInsets.all(10),
@@ -35,13 +32,13 @@ class Library extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {},
-                icon: ImageIcon(
+                icon: const ImageIcon(
                   AssetImage('assets/search_off.png'),
                   size: 19,
                 )),
             IconButton(
                 onPressed: () {},
-                icon: ImageIcon(
+                icon: const ImageIcon(
                   AssetImage('assets/Add.png'),
                   size: 19,
                 )),
@@ -50,7 +47,7 @@ class Library extends StatelessWidget {
               style: GoogleFonts.openSans(fontWeight: FontWeight.bold)),
           leading: Container(
             margin: const EdgeInsets.only(left: 10),
-            child: CircleAvatar(
+            child: const CircleAvatar(
               radius: 10,
               backgroundImage: AssetImage('assets/2.png'),
             ),
@@ -68,12 +65,12 @@ class Library extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              SizedBox(
                 width: 100,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      ImageIcon(
+                  const ImageIcon(
                         AssetImage('assets/Sort.png'),
                       ),
                       Text(
@@ -82,7 +79,7 @@ class Library extends StatelessWidget {
                       )
                     ]),
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.list))
+              IconButton(onPressed: () {}, icon: const Icon(Icons.list))
             ],
           ),
         )),
@@ -91,6 +88,7 @@ class Library extends StatelessWidget {
 
 
         /// create if block if on list of grid 
+      
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (context, index) => ListTile(
