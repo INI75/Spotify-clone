@@ -21,10 +21,11 @@ class Library extends StatelessWidget {
             //   StretchMode.blurBackground
             // ],
             background: Container(
+                height: 150,
                 padding: const EdgeInsets.all(10),
                 alignment: Alignment.bottomLeft,
                 child: Row(
-                  children:const [
+                  children: const [
                     LibraryAppBarChoice(text: 'Playlist'),
                     LibraryAppBarChoice(text: 'Ablums'),
                     LibraryAppBarChoice(text: 'Downloaded')
@@ -55,6 +56,41 @@ class Library extends StatelessWidget {
             ),
           ),
         ),
+
+        // Container(
+        //     child: Row(
+        //   children: [],
+        // )),
+        SliverToBoxAdapter(
+            child: Container(
+          padding: const EdgeInsets.all(8),
+          color: Colors.black,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 100,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ImageIcon(
+                        AssetImage('assets/Sort.png'),
+                      ),
+                      Text(
+                        'Most recent',
+                        style: GoogleFonts.openSans(fontSize: 11),
+                      )
+                    ]),
+              ),
+              IconButton(onPressed: () {}, icon: Icon(Icons.list))
+            ],
+          ),
+        )),
+
+
+
+
+        /// create if block if on list of grid 
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (context, index) => ListTile(
