@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     const HomeSelected(),
     const SearchScreen(),
-    const Library(),
+    Library(),
   ];
 
   void _onTapIndex(int val) {

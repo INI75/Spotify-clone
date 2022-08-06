@@ -8,17 +8,19 @@ class HomeAlbumGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // color: Colors.amber,
-      margin: const EdgeInsets.only(top: 20),
-      height: 195,
+      margin: const EdgeInsets.only(top: 10, bottom: 20),
+      height: 190,
       child: GridView.builder(
           itemCount: 6,
+          physics: const NeverScrollableScrollPhysics(),
+          clipBehavior: Clip.none,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 3,
               crossAxisSpacing: 3,
               mainAxisSpacing: 3),
           itemBuilder: (context, index) {
-            return HomeAblumGridItem();
+            return const HomeAblumGridItem();
           }),
     );
   }

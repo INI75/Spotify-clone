@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/screens/aut_screen.dart';
 import 'package:spotify/screens/home_screen.dart';
+import 'package:spotify/screens/songs_list_ablum_screen.dart';
 import 'package:spotify/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+///    UI design
+/// library designe,
+///  provider design and implementation,
+///  connecting api
+///
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -29,6 +36,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AutScreen.route: (context) => const AutScreen(),
         HomeScreen.route: (context) => const HomeScreen(),
+         AblumSongList.routeName: (context) =>  AblumSongList(),
       },
     );
   }

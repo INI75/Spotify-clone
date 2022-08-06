@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:search_page/search_page.dart';
 import 'package:spotify/widgets/search_top_genres.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -10,6 +9,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _mediaQ = MediaQuery.of(context).size;
     return Container(
+      color: Colors.black,
       height: _mediaQ.height,
       width: _mediaQ.width,
       padding: const EdgeInsets.symmetric(horizontal: 16),

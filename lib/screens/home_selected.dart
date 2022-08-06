@@ -20,7 +20,7 @@ class HomeSelected extends StatelessWidget {
             gradient: LinearGradient(
                 colors: [Color.fromARGB(255, 31, 12, 87), Colors.black],
                 begin: Alignment.topLeft,
-                end: Alignment(-.8, -.45)),
+                end: Alignment(-.4, -.05)),
           ),
         ),
 
