@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../classes/ablums.dart';
 
+const Color _background = Color.fromRGBO(255, 255, 255, 0.1);
+
 class AblumSongList extends StatelessWidget {
   AblumSongList({
     Key? key,
@@ -72,44 +74,54 @@ class AblumSongList extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
+
+      // floatingActionButton: FloatingActionButton(onPressed: () {}),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            // bottom: AppBar(
+            //     actions: [FloatingActionButton(onPressed: () {})],
+            //     backgroundColor: Colors.transparent,
+            //     automaticallyImplyLeading: false),
             title: Text(data['ablumName']),
             pinned: true,
             expandedHeight: 250,
             backgroundColor: const Color.fromARGB(255, 11, 3, 37),
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
-              background: Stack(
-                children: [
-                  Container(
-                    child: Column(children: [
-                      ///
-                      ///
-
-                      Container( 
-                        child: Row(),
-                      )
-
-                      ///
-                      ///
-                    ]),
-                    padding: const EdgeInsets.only(top: 30),
-                    height: mediaQuery.height,
-                    width: mediaQuery.width,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color.fromARGB(255, 65, 29, 174),
-                          Colors.black
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
+              background: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                height: mediaQuery.height,
+                width: mediaQuery.width,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Color.fromARGB(255, 65, 29, 174), Colors.black],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+                child: Row(children: [
+                  const SongSearchBarLib(),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      margin: EdgeInsets.only(left: mediaQuery.width * .05),
+                      alignment: Alignment.center,
+                      height: 45,
+                      width: 45,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: _background,
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 26, 96, 153))),
+                      child: const Text('Sort'),
                     ),
                   )
-                ],
+
+                  ///
+                  ///
+                ]),
               ),
             ),
           ),
@@ -142,14 +154,27 @@ class AblumSongList extends StatelessWidget {
   }
 }
 
-
-//  Stack(
-//         children: [
-        
-
-//           //
-//           SingleChildScrollView(
-//             child: Container(),
-//           ),
-//         ],
-//       ),
+class SongSearchBarLib extends StatelessWidget {
+  const SongSearchBarLib({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: _background,
+          border: Border.all(color: const Color.fromARGB(255, 26, 96, 153))),
+      height: 45,
+      width: mediaQuery.width * .7,
+      child: const TextField(
+          decoration: InputDecoration(
+              border: InputBorder.none,
+//hintStyle: TextStyle(color: Colors.white),
+              hintText: 'Find in liked songs',
+              prefixIcon: Icon(
+                Icons.search,
+                color: Colors.white,
+              ))),
+    );
+  }
+}
