@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../classes/ablums.dart';
+import '../widgets/my_custom_appbar.dart';
 
 const Color _background = Color.fromRGBO(255, 255, 255, 0.1);
 
@@ -79,17 +80,32 @@ class AblumSongList extends StatelessWidget {
       // floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       body: CustomScrollView(
         slivers: [
+          // SliverPersistentHeader(
+          //   delegate:
+          //       MyCustomAppBar(mediaQuery: mediaQuery, expandedHeight: 300),
+          //   pinned: true,
+          // ),
+
           SliverAppBar(
-            // bottom: AppBar(
-            //     actions: [FloatingActionButton(onPressed: () {})],
-            //     backgroundColor: Colors.transparent,
-            //     automaticallyImplyLeading: false),
             title: Text(data['ablumName']),
             pinned: true,
             expandedHeight: 250,
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(20),
+              child: Transform.translate(
+                offset: Offset(mediaQuery.width * .4, 20),
+                child: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(30)),
+                  child: const Icon(Icons.play_arrow),
+                ),
+              ),
+            ),
             backgroundColor: const Color.fromARGB(255, 11, 3, 37),
             flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.pin,
               background: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 height: mediaQuery.height,
@@ -114,17 +130,15 @@ class AblumSongList extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                           color: _background,
                           border: Border.all(
-                              color: const Color.fromARGB(255, 26, 96, 153))),
+                              color: const Color.fromARGB(115, 17, 111, 189))),
                       child: const Text('Sort'),
                     ),
                   )
-
-                  ///
-                  ///
                 ]),
               ),
             ),
           ),
+
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
