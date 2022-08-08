@@ -3,7 +3,7 @@ import 'package:spotify/screens/aut_screen.dart';
 import 'package:spotify/screens/home_screen.dart';
 import 'package:spotify/screens/songs_list_ablum_screen.dart';
 import 'package:spotify/screens/splash_screen.dart';
-import 'package:spotify/screens/test.dart';
+// import 'package:spotify/screens/test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         AutScreen.route: (context) => const AutScreen(),
         HomeScreen.route: (context) => const HomeScreen(),
          AblumSongList.routeName: (context) =>  AblumSongList(),
-         TestScreen.routeName:(context) => const TestScreen()
+        //  TestScreen.routeName:(context) => const TestScreen()
       },
     );
   }
