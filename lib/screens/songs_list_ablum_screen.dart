@@ -4,22 +4,59 @@ import '../classes/ablums.dart';
 
 const Color _background = Color.fromRGBO(255, 255, 255, 0.1);
 
-class AblumSongList extends StatelessWidget {
+class AblumSongList extends StatefulWidget {
   AblumSongList({
     Key? key,
   }) : super(key: key);
   static const routeName = '/ablumSongList';
+
+  @override
+  State<AblumSongList> createState() => _AblumSongListState();
+}
+
+class _AblumSongListState extends State<AblumSongList> {
   late String title;
 
   ///
   ///   dummy data
   // ignore: prefer_final_fields
   bool _listview = true;
+
   List<AblumObject> _ablums = [
     AblumObject(
       ablumName: 'ablue',
       ablumArtist: 'lumArtist',
       image: 'ima',
+      list: true,
+    ),
+    AblumObject(
+      ablumName: 'abName',
+      ablumArtist: 'mArtist',
+      image: 'imae',
+      list: true,
+    ),
+    AblumObject(
+      ablumName: 'ablumNe',
+      ablumArtist: 'ablumArtt',
+      image: 'iage',
+      list: true,
+    ),
+    AblumObject(
+      ablumName: 'ablumme',
+      ablumArtist: 'abmArtist',
+      image: 'age',
+      list: true,
+    ),
+    AblumObject(
+      ablumName: 'ablumName',
+      ablumArtist: 'ablumArtist',
+      image: 'image',
+      list: true,
+    ),
+    AblumObject(
+      ablumName: 'ablumName',
+      ablumArtist: 'ablumArtist',
+      image: 'image',
       list: true,
     ),
     AblumObject(
@@ -79,6 +116,8 @@ class AblumSongList extends StatelessWidget {
           CustomScrollView(
             slivers: [
               SliverAppBar(
+                collapsedHeight: 60,
+
                 // collapsedHeight: 80,
                 title: Text(data['ablumName']),
                 pinned: true,
@@ -150,10 +189,14 @@ class AblumSongList extends StatelessWidget {
                   ),
                 ),
               ),
+              
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
                     return InkWell(
+                      onTap: () {
+                        
+                      },
                       // onTap: () {
                       //   Navigator.of(context)
                       //       .pushNamed(AblumSongList.routeName, arguments: {
@@ -177,13 +220,6 @@ class AblumSongList extends StatelessWidget {
           ),
 
           //
-          Positioned(
-              child: FloatingActionButton(
-                onPressed: () {},
-                child: Icon(Icons.play_arrow),
-              ),
-              top: 20,
-              right: 15),
         ],
       ),
     );

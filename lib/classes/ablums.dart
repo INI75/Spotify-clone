@@ -8,7 +8,6 @@ class AblumObject extends StatelessWidget {
     required this.ablumArtist,
     required this.image,
     required this.list,
-
   }) : super(key: key);
   final String ablumName;
   final String ablumArtist;
@@ -79,13 +78,12 @@ class AblumObject extends StatelessWidget {
             width: 10,
             color: Colors.blue,
             child: Column(children: [
-              Container(
-                color: Colors.green,
-                height: 180,
-                width: 200,
-                margin: const EdgeInsets.only(right: 15),
-                child: Text(image),
-              ),
+              Expanded(
+                  // color: Colors.green,
+                  // height: 180,
+                  // width: 200,
+                  // margin: const EdgeInsets.only(right: 15),
+                  child: Image.asset('assets/1.png')),
             ]),
           );
   }
